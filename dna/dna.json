@@ -1,0 +1,89 @@
+{
+  "Version": 1,
+  "UUID": "ff5973b4-9cdc-458a-9e9f-c22f786c039f",
+  "Name": "hcProdMkt",
+  "Properties": {
+    "description": "Producers Market Holochain Prototype",
+    "language": "en"
+  },
+  "PropertiesSchemaFile": "properties_schema.json",
+  "DHTConfig": {
+    "HashType": "sha2-256"
+  },
+  "Zomes": [
+    {
+      "Name": "listingZome",
+      "Description": "manage listing of products available for sale",
+      "RibosomeType": "js",
+      "CodeFile": "listingzome.js",
+      "Entries": [
+        {
+          "Name": "listingEntry",
+          "Required": true,
+          "DataFormat": "json",
+          "Sharing": "public",
+          "SchemaFile": "listingEntry.json"
+        }
+      ],
+      "Functions": [
+        {
+          "Name": "listingEntryCreate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "listingEntryRead",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "listingEntryUpdate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "listingEntryDelete",
+          "CallingType": "json",
+          "Exposure": "public"
+        }
+      ]
+    },
+    {
+      "Name": "offerZome",
+      "Description": "manage offers to purchase listings",
+      "RibosomeType": "js",
+      "CodeFile": "offerzome.js",
+      "Entries": [
+        {
+          "Name": "offerEntry",
+          "Required": true,
+          "DataFormat": "json",
+          "Sharing": "public",
+          "SchemaFile": "offerEntry.json"
+        }
+      ],
+      "Functions": [
+        {
+          "Name": "offerEntryCreate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "offerEntryRead",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "offerEntryUpdate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "offerEntryDelete",
+          "CallingType": "json",
+          "Exposure": "public"
+        }
+      ]
+    }
+  ]
+}

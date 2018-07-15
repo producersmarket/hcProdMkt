@@ -1,0 +1,42 @@
+{
+  "Tests": [
+    {
+      "Convey": "auto-generated test for offerEntryCreate",
+      "Zome": "offerZome",
+      "FnName": "offerEntryCreate",
+      "Input": {
+        "offer_price_cents": 54321,
+        "listing": "hash",
+        "expires_at": 1531614489,
+        "created_at": 1531614489
+      },
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for offerEntryRead",
+      "Zome": "offerZome",
+      "FnName": "offerEntryRead",
+      "Input": "%h%",
+      "Output": {
+        "offer_price_cents": 54321,
+        "listing": "hash",
+        "expires_at": 1531614489,
+        "created_at": 1531614489
+      }
+    },
+    {
+      "Convey": "auto-generated test for offerEntryUpdate",
+      "Zome": "offerZome",
+      "FnName": "offerEntryUpdate",
+      "Input": "%h%",
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for offerEntryDelete",
+      "Zome": "offerZome",
+      "FnName": "offerEntryDelete",
+      "Input": "%h%",
+      "Output": "%h%"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "Tests": [
+    {
+      "Convey": "auto-generated test for listingEntryCreate",
+      "Zome": "listingZome",
+      "FnName": "listingEntryCreate",
+      "Input": {
+        "title": "Collin's Awesome Avacados",
+        "description": "Awesome Avacados (from Mexico) Grown by Collin",
+        "category": "Avacados",
+        "price_cents": 12345,
+        "currency": "USD",
+        "valid_until": 1531614489,
+        "created_at": 1531614489,
+        "crop": "123",
+        "moisture": 95,
+        "delivery": "truck",
+        "storage": "container",
+        "term_of_payment": "DOD",
+        "image_data": "https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg",
+        "weight": "120kg"
+      },
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for listingEntryRead",
+      "Zome": "listingZome",
+      "FnName": "listingEntryRead",
+      "Input": "%h%",
+      "Output": {
+        "title": "Collin's Awesome Avacados",
+        "description": "Awesome Avacados (from Mexico) Grown by Collin",
+        "category": "Avacados",
+        "price_cents": 12345,
+        "currency": "USD",
+        "valid_until": 1531614489,
+        "created_at": 1531614489,
+        "crop": "123",
+        "moisture": 95,
+        "delivery": "truck",
+        "storage": "container",
+        "term_of_payment": "DOD",
+        "image_data": "https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg",
+        "weight": "120kg"
+      }
+    },
+    {
+      "Convey": "auto-generated test for listingEntryUpdate",
+      "Zome": "listingZome",
+      "FnName": "listingEntryUpdate",
+      "Input": "%h%",
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for listingEntryDelete",
+      "Zome": "listingZome",
+      "FnName": "listingEntryDelete",
+      "Input": "%h%",
+      "Output": "%h%"
+    }
+  ]
+}

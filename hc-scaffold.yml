@@ -1,0 +1,422 @@
+{
+  # This is a holochain scaffold yaml definition. http://ceptr.org/projects/holochain
+
+  # DNA File Version
+  # Version indicator for changes to DNA
+  "Version": "0.0.1",
+  "Generator": "hc-scaffold:0.1.0+06aba91",
+
+  # Application DNA
+  # The DNA specifies the entry structure and functions and configuration of your application
+  "DNA": {
+
+    # DNA File Version
+    # Version indicator for changes to DNA
+    "Version": 1,
+
+    # DNA Unique ID
+    # This ID differentiates your app from others. For example, to tell one Slack team from another which same code.
+    "UUID": "ff5973b4-9cdc-458a-9e9f-c22f786c039f",
+
+    # Application Name
+    # What would you like to call your holochain app?
+    "Name": "hcProdMkt",
+
+    # Properties
+    # Properties that you want available across all Zomes.
+    "Properties": {
+
+      # Application Description
+      # Briefly describe your holochain app.
+      "description": "Producers Market Holochain Prototype",
+
+      # Language
+      # The base (human) language of this holochain app.
+      "language": "en"
+    },
+
+    # Properties Schema File
+    # Describes the entries in the Properties section of your dna file.
+    "PropertiesSchemaFile": "properties_schema.json",
+
+    # DHT Settings
+    # Configure the properties of your Distributed Hash Table (e.g. hash algorithm, neighborhood size, etc.).
+    "DHTConfig": {
+      "HashType": "sha2-256"
+    },
+
+    # Zomes
+    # List the Zomes your application will support.
+    "Zomes": [
+      {
+
+        # Zome Name
+        # The name of this code module.
+        "Name": "listingZome",
+
+        # Zome Description
+        # What is the purpose of this module?
+        "Description": "manage listing of products available for sale",
+
+        # Ribosome Type
+        # What scripting language will you code in?
+        "RibosomeType": "js",
+
+        # Code File
+        # Points to the main script file for this Zome.
+        "CodeFile": "listingzome.js",
+
+        # Zome Entries
+        # Data stored and tracked by your Zome.
+        "Entries": [
+          {
+            "Name": "listingEntry", # The name of this entry.
+            "Required": true, # Is this entry required?
+            "DataFormat": "json", # What type of data should this entry store?
+            "Sharing": "public", # Should this entry be publicly accessible?
+            "Schema": "{\n  \"$id\": \"http://example.com/example.json\",\n  \"type\": \"object\",\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"properties\": {\n    \"title\": {\n      \"$id\": \"/properties/title\",\n      \"type\": \"string\",\n      \"title\": \"The Title Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"Collin's Awesome Avacados\"\n      ]\n    },\n    \"description\": {\n      \"$id\": \"/properties/description\",\n      \"type\": \"string\",\n      \"title\": \"The Description Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"Awesome Avacados (from Mexico) Grown by Collin\"\n      ]\n    },\n    \"category\": {\n      \"$id\": \"/properties/category\",\n      \"type\": \"string\",\n      \"title\": \"The Category Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"Avacados\"\n      ]\n    },\n    \"price_cents\": {\n      \"$id\": \"/properties/price_cents\",\n      \"type\": \"integer\",\n      \"title\": \"The Price_cents Schema \",\n      \"default\": 0,\n      \"examples\": [\n        12345\n      ]\n    },\n    \"currency\": {\n      \"$id\": \"/properties/currency\",\n      \"type\": \"string\",\n      \"title\": \"The Currency Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"USD\"\n      ]\n    },\n    \"valid_until\": {\n      \"$id\": \"/properties/valid_until\",\n      \"type\": \"integer\",\n      \"title\": \"The Valid_until Schema \",\n      \"default\": 0,\n      \"examples\": [\n        1531614489\n      ]\n    },\n    \"created_at\": {\n      \"$id\": \"/properties/created_at\",\n      \"type\": \"integer\",\n      \"title\": \"The Created_at Schema \",\n      \"default\": 0,\n      \"examples\": [\n        1531614489\n      ]\n    },\n    \"crop\": {\n      \"$id\": \"/properties/crop\",\n      \"type\": \"string\",\n      \"title\": \"The Crop Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"123\"\n      ]\n    },\n    \"moisture\": {\n      \"$id\": \"/properties/moisture\",\n      \"type\": \"integer\",\n      \"title\": \"The Moisture Schema \",\n      \"default\": 0,\n      \"examples\": [\n        95\n      ]\n    },\n    \"delivery\": {\n      \"$id\": \"/properties/delivery\",\n      \"type\": \"string\",\n      \"title\": \"The Delivery Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"truck\"\n      ]\n    },\n    \"storage\": {\n      \"$id\": \"/properties/storage\",\n      \"type\": \"string\",\n      \"title\": \"The Storage Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"container\"\n      ]\n    },\n    \"term_of_payment\": {\n      \"$id\": \"/properties/term_of_payment\",\n      \"type\": \"string\",\n      \"title\": \"The Term_of_payment Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"DOD\"\n      ]\n    },\n    \"image_data\": {\n      \"$id\": \"/properties/image_data\",\n      \"type\": \"string\",\n      \"title\": \"The Image_data Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg\"\n      ]\n    },\n    \"weight\": {\n      \"$id\": \"/properties/weight\",\n      \"type\": \"string\",\n      \"title\": \"The Weight Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"120kg\"\n      ]\n    }\n  }\n}",
+            "_": "crud"
+          }
+        ],
+
+        # Zome Functions
+        # Functions which can be called in your Zome's API.
+        "Functions": [
+          {
+            "Name": "listingEntryCreate", # The name of this function.
+            "CallingType": "json", # Data format for parameters passed to this function.
+            "Exposure": "public", # Level to which is this function exposed.
+            "_": "c:listingEntry"
+          },
+          {
+            "Name": "listingEntryRead", # The name of this function.
+            "CallingType": "json", # Data format for parameters passed to this function.
+            "Exposure": "public", # Level to which is this function exposed.
+            "_": "r:listingEntry"
+          },
+          {
+            "Name": "listingEntryUpdate", # The name of this function.
+            "CallingType": "json", # Data format for parameters passed to this function.
+            "Exposure": "public", # Level to which is this function exposed.
+            "_": "u:listingEntry"
+          },
+          {
+            "Name": "listingEntryDelete", # The name of this function.
+            "CallingType": "json", # Data format for parameters passed to this function.
+            "Exposure": "public", # Level to which is this function exposed.
+            "_": "d:listingEntry"
+          }
+        ],
+
+        # Zome Source Code
+        # The logic that will control Zome behavior
+        "Code": "'use strict';\n\n// -----------------------------------------------------------------\n//  This stub Zome code file was auto-generated by hc-scaffold\n// -----------------------------------------------------------------\n\n// -----------------------------------------------------------------\n//  Exposed functions with custom logic https://developer.holochain.org/API_reference\n// -----------------------------------------------------------------\n\nfunction listingEntryCreate (listingEntryEntry) {\n  var listingEntryHash = commit(\"listingEntry\", listingEntryEntry);\n  return listingEntryHash;\n}\n\nfunction listingEntryRead (listingEntryHash) {\n  var listingEntry = get(listingEntryHash);\n  return listingEntry;\n}\n\nfunction listingEntryUpdate (listingEntryHash) {\n  var sampleValue={\"title\":\"Collin's Awesome Avacados\",\"description\":\"Awesome Avacados (from Mexico) Grown by Collin\",\"category\":\"Avacados\",\"price_cents\":12345,\"currency\":\"USD\",\"valid_until\":1531614489,\"created_at\":1531614489,\"crop\":\"123\",\"moisture\":95,\"delivery\":\"truck\",\"storage\":\"container\",\"term_of_payment\":\"DOD\",\"image_data\":\"https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg\",\"weight\":\"120kg\",\"extraField\":true};\n  var listingEntryOutHash = update(\"listingEntry\", sampleValue, listingEntryHash);\n  return listingEntryOutHash;\n}\n\nfunction listingEntryDelete (listingEntryHash) {\n  var result = remove(listingEntryHash, \"\");\n  return result;\n}\n\n\n// -----------------------------------------------------------------\n//  The Genesis Function https://developer.holochain.org/genesis\n// -----------------------------------------------------------------\n\n/**\n * Called only when your source chain is generated\n * @return {boolean} success\n */\nfunction genesis () {\n  return true;\n}\n\n// -----------------------------------------------------------------\n//  Validation functions for every change to the local chain or DHT\n// -----------------------------------------------------------------\n\n/**\n * Called to validate any changes to the local chain or DHT\n * @param {string} entryName - the type of entry\n * @param {*} entry - the entry data to be set\n * @param {object} header - header for the entry containing properties EntryLink, Time, and Type\n * @param {*} pkg - the extra data provided by the validate[X]Pkg methods\n * @param {object} sources - an array of strings containing the keys of any authors of this entry\n * @return {boolean} is valid?\n */\nfunction validateCommit (entryName, entry, header, pkg, sources) {\n  switch (entryName) {\n    case \"listingEntry\":\n      // be sure to consider many edge cases for validating\n      // do not just flip this to true without considering what that means\n      // the action will ONLY be successfull if this returns true, so watch out!\n      return false;\n    default:\n      // invalid entry name\n      return false;\n  }\n}\n\n/**\n * Called to validate any changes to the local chain or DHT\n * @param {string} entryName - the type of entry\n * @param {*} entry - the entry data to be set\n * @param {object} header - header for the entry containing properties EntryLink, Time, and Type\n * @param {*} pkg - the extra data provided by the validate[X]Pkg methods\n * @param {object} sources - an array of strings containing the keys of any authors of this entry\n * @return {boolean} is valid?\n */\nfunction validatePut (entryName, entry, header, pkg, sources) {\n  switch (entryName) {\n    case \"listingEntry\":\n      // be sure to consider many edge cases for validating\n      // do not just flip this to true without considering what that means\n      // the action will ONLY be successfull if this returns true, so watch out!\n      return false;\n    default:\n      // invalid entry name\n      return false;\n  }\n}\n\n/**\n * Called to validate any changes to the local chain or DHT\n * @param {string} entryName - the type of entry\n * @param {*} entry - the entry data to be set\n * @param {object} header - header for the entry containing properties EntryLink, Time, and Type\n * @param {string} replaces - the hash for the entry being updated\n * @param {*} pkg - the extra data provided by the validate[X]Pkg methods\n * @param {object} sources - an array of strings containing the keys of any authors of this entry\n * @return {boolean} is valid?\n */\nfunction validateMod (entryName, entry, header, replaces, pkg, sources) {\n  switch (entryName) {\n    case \"listingEntry\":\n      // be sure to consider many edge cases for validating\n      // do not just flip this to true without considering what that means\n      // the action will ONLY be successfull if this returns true, so watch out!\n      return false;\n    default:\n      // invalid entry name\n      return false;\n  }\n}\n\n/**\n * Called to validate any changes to the local chain or DHT\n * @param {string} entryName - the type of entry\n * @param {string} hash - the hash of the entry to remove\n * @param {*} pkg - the extra data provided by the validate[X]Pkg methods\n * @param {object} sources - an array of strings containing the keys of any authors of this entry\n * @return {boolean} is valid?\n */\nfunction validateDel (entryName, hash, pkg, sources) {\n  switch (entryName) {\n    case \"listingEntry\":\n      // be sure to consider many edge cases for validating\n      // do not just flip this to true without considering what that means\n      // the action will ONLY be successfull if this returns true, so watch out!\n      return false;\n    default:\n      // invalid entry name\n      return false;\n  }\n}\n\n/**\n * Called to validate any changes to the local chain or DHT\n * @param {string} entryName - the type of entry\n * @param {string} baseHash - the hash of the base entry being linked\n * @param {?} links - ?\n * @param {*} pkg - the extra data provided by the validate[X]Pkg methods\n * @param {object} sources - an array of strings containing the keys of any authors of this entry\n * @return {boolean} is valid?\n */\nfunction validateLink (entryName, baseHash, links, pkg, sources) {\n  switch (entryName) {\n    case \"listingEntry\":\n      // be sure to consider many edge cases for validating\n      // do not just flip this to true without considering what that means\n      // the action will ONLY be successfull if this returns true, so watch out!\n      return false;\n    default:\n      // invalid entry name\n      return false;\n  }\n}\n\n/**\n * Called to get the data needed to validate\n * @param {string} entryName - the name of entry to validate\n * @return {*} the data required for validation\n */\nfunction validatePutPkg (entryName) {\n  return null;\n}\n\n/**\n * Called to get the data needed to validate\n * @param {string} entryName - the name of entry to validate\n * @return {*} the data required for validation\n */\nfunction validateModPkg (entryName) {\n  return null;\n}\n\n/**\n * Called to get the data needed to validate\n * @param {string} entryName - the name of entry to validate\n * @return {*} the data required for validation\n */\nfunction validateDelPkg (entryName) {\n  return null;\n}\n\n/**\n * Called to get the data needed to validate\n * @param {string} entryName - the name of entry to validate\n * @return {*} the data required for validation\n */\nfunction validateLinkPkg (entryName) {\n  return null;\n}"
+      },
+      {
+
+        # Zome Name
+        # The name of this code module.
+        "Name": "offerZome",
+
+        # Zome Description
+        # What is the purpose of this module?
+        "Description": "manage offers to purchase listings",
+
+        # Ribosome Type
+        # What scripting language will you code in?
+        "RibosomeType": "js",
+
+        # Code File
+        # Points to the main script file for this Zome.
+        "CodeFile": "offerzome.js",
+
+        # Zome Entries
+        # Data stored and tracked by your Zome.
+        "Entries": [
+          {
+            "Name": "offerEntry", # The name of this entry.
+            "Required": true, # Is this entry required?
+            "DataFormat": "json", # What type of data should this entry store?
+            "Sharing": "public", # Should this entry be publicly accessible?
+            "Schema": "{\n  \"$id\": \"http://example.com/example.json\",\n  \"type\": \"object\",\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"properties\": {\n    \"offer_price_cents\": {\n      \"$id\": \"/properties/offer_price_cents\",\n      \"type\": \"integer\",\n      \"title\": \"The Offer_price_cents Schema \",\n      \"default\": 0,\n      \"examples\": [\n        54321\n      ]\n    },\n    \"listing\": {\n      \"$id\": \"/properties/listing\",\n      \"type\": \"string\",\n      \"title\": \"The Listing Schema \",\n      \"default\": \"\",\n      \"examples\": [\n        \"hash\"\n      ]\n    },\n    \"expires_at\": {\n      \"$id\": \"/properties/expires_at\",\n      \"type\": \"integer\",\n      \"title\": \"The Expires_at Schema \",\n      \"default\": 0,\n      \"examples\": [\n        1531614489\n      ]\n    },\n    \"created_at\": {\n      \"$id\": \"/properties/created_at\",\n      \"type\": \"integer\",\n      \"title\": \"The Created_at Schema \",\n      \"default\": 0,\n      \"examples\": [\n        1531614489\n      ]\n    }\n  }\n}",
+            "_": "crud"
+          }
+        ],
+
+        # Zome Functions
+        # Functions which can be called in your Zome's API.
+        "Functions": [
+          {
+            "Name": "offerEntryCreate", # The name of this function.
+            "CallingType": "json", # Data format for parameters passed to this function.
+            "Exposure": "public", # Level to which is this function exposed.
+            "_": "c:offerEntry"
+          },
+          {
+            "Name": "offerEntryRead", # The name of this function.
+            "CallingType": "json", # Data format for parameters passed to this function.
+            "Exposure": "public", # Level to which is this function exposed.
+            "_": "r:offerEntry"
+          },
+          {
+            "Name": "offerEntryUpdate", # The name of this function.
+            "CallingType": "json", # Data format for parameters passed to this function.
+            "Exposure": "public", # Level to which is this function exposed.
+            "_": "u:offerEntry"
+          },
+          {
+            "Name": "offerEntryDelete", # The name of this function.
+            "CallingType": "json", # Data format for parameters passed to this function.
+            "Exposure": "public", # Level to which is this function exposed.
+            "_": "d:offerEntry"
+          }
+        ],
+
+        # Zome Source Code
+        # The logic that will control Zome behavior
+        "Code": "'use strict';\n\n// -----------------------------------------------------------------\n//  This stub Zome code file was auto-generated by hc-scaffold\n// -----------------------------------------------------------------\n\n// -----------------------------------------------------------------\n//  Exposed functions with custom logic https://developer.holochain.org/API_reference\n// -----------------------------------------------------------------\n\nfunction offerEntryCreate (offerEntryEntry) {\n  var offerEntryHash = commit(\"offerEntry\", offerEntryEntry);\n  return offerEntryHash;\n}\n\nfunction offerEntryRead (offerEntryHash) {\n  var offerEntry = get(offerEntryHash);\n  return offerEntry;\n}\n\nfunction offerEntryUpdate (offerEntryHash) {\n  var sampleValue={\"offer_price_cents\":54321,\"listing\":\"hash\",\"expires_at\":1531614489,\"created_at\":1531614489,\"extraField\":true};\n  var offerEntryOutHash = update(\"offerEntry\", sampleValue, offerEntryHash);\n  return offerEntryOutHash;\n}\n\nfunction offerEntryDelete (offerEntryHash) {\n  var result = remove(offerEntryHash, \"\");\n  return result;\n}\n\n\n// -----------------------------------------------------------------\n//  The Genesis Function https://developer.holochain.org/genesis\n// -----------------------------------------------------------------\n\n/**\n * Called only when your source chain is generated\n * @return {boolean} success\n */\nfunction genesis () {\n  return true;\n}\n\n// -----------------------------------------------------------------\n//  Validation functions for every change to the local chain or DHT\n// -----------------------------------------------------------------\n\n/**\n * Called to validate any changes to the local chain or DHT\n * @param {string} entryName - the type of entry\n * @param {*} entry - the entry data to be set\n * @param {object} header - header for the entry containing properties EntryLink, Time, and Type\n * @param {*} pkg - the extra data provided by the validate[X]Pkg methods\n * @param {object} sources - an array of strings containing the keys of any authors of this entry\n * @return {boolean} is valid?\n */\nfunction validateCommit (entryName, entry, header, pkg, sources) {\n  switch (entryName) {\n    case \"offerEntry\":\n      // be sure to consider many edge cases for validating\n      // do not just flip this to true without considering what that means\n      // the action will ONLY be successfull if this returns true, so watch out!\n      return false;\n    default:\n      // invalid entry name\n      return false;\n  }\n}\n\n/**\n * Called to validate any changes to the local chain or DHT\n * @param {string} entryName - the type of entry\n * @param {*} entry - the entry data to be set\n * @param {object} header - header for the entry containing properties EntryLink, Time, and Type\n * @param {*} pkg - the extra data provided by the validate[X]Pkg methods\n * @param {object} sources - an array of strings containing the keys of any authors of this entry\n * @return {boolean} is valid?\n */\nfunction validatePut (entryName, entry, header, pkg, sources) {\n  switch (entryName) {\n    case \"offerEntry\":\n      // be sure to consider many edge cases for validating\n      // do not just flip this to true without considering what that means\n      // the action will ONLY be successfull if this returns true, so watch out!\n      return false;\n    default:\n      // invalid entry name\n      return false;\n  }\n}\n\n/**\n * Called to validate any changes to the local chain or DHT\n * @param {string} entryName - the type of entry\n * @param {*} entry - the entry data to be set\n * @param {object} header - header for the entry containing properties EntryLink, Time, and Type\n * @param {string} replaces - the hash for the entry being updated\n * @param {*} pkg - the extra data provided by the validate[X]Pkg methods\n * @param {object} sources - an array of strings containing the keys of any authors of this entry\n * @return {boolean} is valid?\n */\nfunction validateMod (entryName, entry, header, replaces, pkg, sources) {\n  switch (entryName) {\n    case \"offerEntry\":\n      // be sure to consider many edge cases for validating\n      // do not just flip this to true without considering what that means\n      // the action will ONLY be successfull if this returns true, so watch out!\n      return false;\n    default:\n      // invalid entry name\n      return false;\n  }\n}\n\n/**\n * Called to validate any changes to the local chain or DHT\n * @param {string} entryName - the type of entry\n * @param {string} hash - the hash of the entry to remove\n * @param {*} pkg - the extra data provided by the validate[X]Pkg methods\n * @param {object} sources - an array of strings containing the keys of any authors of this entry\n * @return {boolean} is valid?\n */\nfunction validateDel (entryName, hash, pkg, sources) {\n  switch (entryName) {\n    case \"offerEntry\":\n      // be sure to consider many edge cases for validating\n      // do not just flip this to true without considering what that means\n      // the action will ONLY be successfull if this returns true, so watch out!\n      return false;\n    default:\n      // invalid entry name\n      return false;\n  }\n}\n\n/**\n * Called to validate any changes to the local chain or DHT\n * @param {string} entryName - the type of entry\n * @param {string} baseHash - the hash of the base entry being linked\n * @param {?} links - ?\n * @param {*} pkg - the extra data provided by the validate[X]Pkg methods\n * @param {object} sources - an array of strings containing the keys of any authors of this entry\n * @return {boolean} is valid?\n */\nfunction validateLink (entryName, baseHash, links, pkg, sources) {\n  switch (entryName) {\n    case \"offerEntry\":\n      // be sure to consider many edge cases for validating\n      // do not just flip this to true without considering what that means\n      // the action will ONLY be successfull if this returns true, so watch out!\n      return false;\n    default:\n      // invalid entry name\n      return false;\n  }\n}\n\n/**\n * Called to get the data needed to validate\n * @param {string} entryName - the name of entry to validate\n * @return {*} the data required for validation\n */\nfunction validatePutPkg (entryName) {\n  return null;\n}\n\n/**\n * Called to get the data needed to validate\n * @param {string} entryName - the name of entry to validate\n * @return {*} the data required for validation\n */\nfunction validateModPkg (entryName) {\n  return null;\n}\n\n/**\n * Called to get the data needed to validate\n * @param {string} entryName - the name of entry to validate\n * @return {*} the data required for validation\n */\nfunction validateDelPkg (entryName) {\n  return null;\n}\n\n/**\n * Called to get the data needed to validate\n * @param {string} entryName - the name of entry to validate\n * @return {*} the data required for validation\n */\nfunction validateLinkPkg (entryName) {\n  return null;\n}"
+      }
+    ]
+  },
+
+  # TestSets
+  # Auto-Generated test sets for hcdev package
+  "TestSets": [
+    {
+
+      # Name
+      # Name of the Test Set
+      "Name": "listingZome",
+      "TestSet": {
+        "Tests": [
+          {
+
+            # Convey
+            # Description of this test
+            "Convey": "auto-generated test for listingEntryCreate",
+
+            # Zome
+            # The zome this test is related to
+            "Zome": "listingZome",
+
+            # Function Name
+            # The function to test
+            "FnName": "listingEntryCreate",
+
+            # Input
+            # Input sent to the function
+            "Input": {
+              "title": "Collin's Awesome Avacados",
+              "description": "Awesome Avacados (from Mexico) Grown by Collin",
+              "category": "Avacados",
+              "price_cents": 12345,
+              "currency": "USD",
+              "valid_until": 1531614489,
+              "created_at": 1531614489,
+              "crop": "123",
+              "moisture": 95,
+              "delivery": "truck",
+              "storage": "container",
+              "term_of_payment": "DOD",
+              "image_data": "https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg",
+              "weight": "120kg"
+            },
+
+            # Output
+            # Output from the function to validate
+            "Output": "%h%"
+          },
+          {
+
+            # Convey
+            # Description of this test
+            "Convey": "auto-generated test for listingEntryRead",
+
+            # Zome
+            # The zome this test is related to
+            "Zome": "listingZome",
+
+            # Function Name
+            # The function to test
+            "FnName": "listingEntryRead",
+
+            # Input
+            # Input sent to the function
+            "Input": "%h%",
+
+            # Output
+            # Output from the function to validate
+            "Output": {
+              "title": "Collin's Awesome Avacados",
+              "description": "Awesome Avacados (from Mexico) Grown by Collin",
+              "category": "Avacados",
+              "price_cents": 12345,
+              "currency": "USD",
+              "valid_until": 1531614489,
+              "created_at": 1531614489,
+              "crop": "123",
+              "moisture": 95,
+              "delivery": "truck",
+              "storage": "container",
+              "term_of_payment": "DOD",
+              "image_data": "https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg",
+              "weight": "120kg"
+            }
+          },
+          {
+
+            # Convey
+            # Description of this test
+            "Convey": "auto-generated test for listingEntryUpdate",
+
+            # Zome
+            # The zome this test is related to
+            "Zome": "listingZome",
+
+            # Function Name
+            # The function to test
+            "FnName": "listingEntryUpdate",
+
+            # Input
+            # Input sent to the function
+            "Input": "%h%",
+
+            # Output
+            # Output from the function to validate
+            "Output": "%h%"
+          },
+          {
+
+            # Convey
+            # Description of this test
+            "Convey": "auto-generated test for listingEntryDelete",
+
+            # Zome
+            # The zome this test is related to
+            "Zome": "listingZome",
+
+            # Function Name
+            # The function to test
+            "FnName": "listingEntryDelete",
+
+            # Input
+            # Input sent to the function
+            "Input": "%h%",
+
+            # Output
+            # Output from the function to validate
+            "Output": "%h%"
+          }
+        ]
+      }
+    },
+    {
+
+      # Name
+      # Name of the Test Set
+      "Name": "offerZome",
+      "TestSet": {
+        "Tests": [
+          {
+
+            # Convey
+            # Description of this test
+            "Convey": "auto-generated test for offerEntryCreate",
+
+            # Zome
+            # The zome this test is related to
+            "Zome": "offerZome",
+
+            # Function Name
+            # The function to test
+            "FnName": "offerEntryCreate",
+
+            # Input
+            # Input sent to the function
+            "Input": {
+              "offer_price_cents": 54321,
+              "listing": "hash",
+              "expires_at": 1531614489,
+              "created_at": 1531614489
+            },
+
+            # Output
+            # Output from the function to validate
+            "Output": "%h%"
+          },
+          {
+
+            # Convey
+            # Description of this test
+            "Convey": "auto-generated test for offerEntryRead",
+
+            # Zome
+            # The zome this test is related to
+            "Zome": "offerZome",
+
+            # Function Name
+            # The function to test
+            "FnName": "offerEntryRead",
+
+            # Input
+            # Input sent to the function
+            "Input": "%h%",
+
+            # Output
+            # Output from the function to validate
+            "Output": {
+              "offer_price_cents": 54321,
+              "listing": "hash",
+              "expires_at": 1531614489,
+              "created_at": 1531614489
+            }
+          },
+          {
+
+            # Convey
+            # Description of this test
+            "Convey": "auto-generated test for offerEntryUpdate",
+
+            # Zome
+            # The zome this test is related to
+            "Zome": "offerZome",
+
+            # Function Name
+            # The function to test
+            "FnName": "offerEntryUpdate",
+
+            # Input
+            # Input sent to the function
+            "Input": "%h%",
+
+            # Output
+            # Output from the function to validate
+            "Output": "%h%"
+          },
+          {
+
+            # Convey
+            # Description of this test
+            "Convey": "auto-generated test for offerEntryDelete",
+
+            # Zome
+            # The zome this test is related to
+            "Zome": "offerZome",
+
+            # Function Name
+            # The function to test
+            "FnName": "offerEntryDelete",
+
+            # Input
+            # Input sent to the function
+            "Input": "%h%",
+
+            # Output
+            # Output from the function to validate
+            "Output": "%h%"
+          }
+        ]
+      }
+    }
+  ]
+}
