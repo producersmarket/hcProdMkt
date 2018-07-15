@@ -10,11 +10,31 @@
 
 function offerEntryCreate (offerEntryEntry) {
   var offerEntryHash = commit("offerEntry", offerEntryEntry);
+
+  var listingHash = offerEntryEntry['listing']
+  debug(listingHash)
+
+  var offerSeller = getLinks(listingHash, "listing_source", { Load: false })
+  debug(offerSeller)
+
+  var seller = get(listingHash, { GetMask: HC.GetMask.Sources })[0]
+  debug(seller)
+
+  var me = App.Agent.Hash;
+  commit("offer_links",{Links: [{Base: offerEntryHash,Link: me, Tag: "offer_source"}]});
+  commit("offer_links",{Links: [{Base: offerEntryHash,Link: seller, Tag: "listing_source"}]});
+
   return offerEntryHash;
 }
 
 function offerEntryRead (offerEntryHash) {
   var offerEntry = get(offerEntryHash);
+  debug(offerEntry)
+  var offerSeller = getLinks(offerEntryHash, "listing_source", { Load: false })[0]['Hash']
+  debug("Seller: " + offerSeller)
+  var offerBuyer = getLinks(offerEntryHash, "offer_source", { Load: false })[0]['Hash']
+  debug("Buyer: " + offerBuyer)
+
   return offerEntry;
 }
 
@@ -58,6 +78,11 @@ function genesis () {
 function validateCommit (entryName, entry, header, pkg, sources) {
   switch (entryName) {
     case "offerEntry":
+      // be sure to consider many edge cases for validating
+      // do not just flip this to true without considering what that means
+      // the action will ONLY be successfull if this returns true, so watch out!
+      return true;
+    case "offer_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
@@ -146,6 +171,11 @@ function validateDel (entryName, hash, pkg, sources) {
 function validateLink (entryName, baseHash, links, pkg, sources) {
   switch (entryName) {
     case "offerEntry":
+      // be sure to consider many edge cases for validating
+      // do not just flip this to true without considering what that means
+      // the action will ONLY be successfull if this returns true, so watch out!
+      return true;
+    case "offer_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!

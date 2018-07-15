@@ -10,6 +10,11 @@
 
 function listingEntryCreate (listingEntryEntry) {
   var listingEntryHash = commit("listingEntry", listingEntryEntry);
+
+  // On the DHT, put a link from my hash to the hash of the new post
+  var me = App.Agent.Hash;
+  commit("listing_links",{ Links: [ { Base: listingEntryHash,Link: me, Tag: "listing_source" } ] });
+
   return listingEntryHash;
 }
 
@@ -61,6 +66,8 @@ function validateCommit (entryName, entry, header, pkg, sources) {
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
+      return true;
+    case "listing_links":
       return true;
     default:
       // invalid entry name

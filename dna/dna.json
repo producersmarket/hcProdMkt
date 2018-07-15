@@ -23,6 +23,10 @@
           "DataFormat": "json",
           "Sharing": "public",
           "SchemaFile": "listingEntry.json"
+        },
+        {
+          "Name": "listing_links",
+          "DataFormat": "links"
         }
       ],
       "Functions": [
@@ -60,6 +64,10 @@
           "DataFormat": "json",
           "Sharing": "public",
           "SchemaFile": "offerEntry.json"
+        },
+        {
+          "Name": "offer_links",
+          "DataFormat": "links"
         }
       ],
       "Functions": [

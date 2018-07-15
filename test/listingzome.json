@@ -20,13 +20,13 @@
         "image_data": "https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg",
         "weight": "120kg"
       },
-      "Output": "%h%"
+      "Output": "%h1%"
     },
     {
       "Convey": "auto-generated test for listingEntryRead",
       "Zome": "listingZome",
       "FnName": "listingEntryRead",
-      "Input": "%h%",
+      "Input": "%r1%",
       "Output": {
         "title": "Collin's Awesome Avacados",
         "description": "Awesome Avacados (from Mexico) Grown by Collin",
@@ -48,14 +48,14 @@
       "Convey": "auto-generated test for listingEntryUpdate",
       "Zome": "listingZome",
       "FnName": "listingEntryUpdate",
-      "Input": "%h%",
+      "Input": "%r2%",
       "Output": "%h%"
     },
     {
       "Convey": "auto-generated test for listingEntryDelete",
       "Zome": "listingZome",
       "FnName": "listingEntryDelete",
-      "Input": "%h%",
+      "Input": "%r3%",
       "Output": "%h%"
     }
   ]
