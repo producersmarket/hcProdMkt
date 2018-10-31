@@ -1,12 +1,12 @@
 {
   "Tests": [
     {
-      "Convey": "auto-generated test for listingEntryCreate",
+      "Convey": "Test for listingEntryCreate",
       "Zome": "listingZome",
       "FnName": "listingEntryCreate",
       "Input": {
-        "title": "Collin's Awesome Avacados",
-        "description": "Awesome Avacados (from Mexico) Grown by Collin",
+        "title": "My Awesome Avacados",
+        "description": "Awesome Avacados (from Mexico) Grown by Me",
         "category": "Avacados",
         "price_cents": 12345,
         "currency": "USD",
@@ -23,13 +23,13 @@
       "Output": "%h1%"
     },
     {
-      "Convey": "auto-generated test for listingEntryRead",
+      "Convey": "Test for listingEntryRead",
       "Zome": "listingZome",
       "FnName": "listingEntryRead",
       "Input": "%r1%",
       "Output": {
-        "title": "Collin's Awesome Avacados",
-        "description": "Awesome Avacados (from Mexico) Grown by Collin",
+        "title": "My Awesome Avacados",
+        "description": "Awesome Avacados (from Mexico) Grown by Me",
         "category": "Avacados",
         "price_cents": 12345,
         "currency": "USD",
@@ -45,14 +45,14 @@
       }
     },
     {
-      "Convey": "auto-generated test for listingEntryUpdate",
+      "Convey": "Test for listingEntryUpdate",
       "Zome": "listingZome",
       "FnName": "listingEntryUpdate",
       "Input": "%r2%",
       "Output": "%h%"
     },
     {
-      "Convey": "auto-generated test for listingEntryDelete",
+      "Convey": "Test for listingEntryDelete",
       "Zome": "listingZome",
       "FnName": "listingEntryDelete",
       "Input": "%r3%",

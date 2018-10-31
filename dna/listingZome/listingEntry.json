@@ -10,7 +10,7 @@
       "title": "The Title Schema ",
       "default": "",
       "examples": [
-        "Collin's Awesome Avacados"
+        "My Awesome Avacados"
       ]
     },
     "description": {
@@ -19,7 +19,7 @@
       "title": "The Description Schema ",
       "default": "",
       "examples": [
-        "Awesome Avacados (from Mexico) Grown by Collin"
+        "Awesome Avacados (from Mexico) Grown by Me"
       ]
     },
     "category": {

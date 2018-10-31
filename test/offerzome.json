@@ -1,12 +1,12 @@
 {
   "Tests": [
     {
-      "Convey": "auto-generated test for listingEntryCreate",
+      "Convey": "Test for listingEntryCreate",
       "Zome": "listingZome",
       "FnName": "listingEntryCreate",
       "Input": {
-        "title": "Collin's Awesome Avacados",
-        "description": "Awesome Avacados (from Mexico) Grown by Collin",
+        "title": "My Awesome Avacados",
+        "description": "Awesome Avacados (from Mexico) Grown by Me",
         "category": "Avacados",
         "price_cents": 12345,
         "currency": "USD",
@@ -23,7 +23,7 @@
       "Output": "%h1%"
     },
     {
-      "Convey": "auto-generated test for offerEntryCreate",
+      "Convey": "Test for offerEntryCreate",
       "Zome": "offerZome",
       "FnName": "offerEntryCreate",
       "Input": {

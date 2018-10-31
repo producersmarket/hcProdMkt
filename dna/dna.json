@@ -37,17 +37,17 @@
         },
         {
           "Name": "listingEntryRead",
-          "CallingType": "json",
+          "CallingType": "string",
           "Exposure": "public"
         },
         {
           "Name": "listingEntryUpdate",
-          "CallingType": "json",
+          "CallingType": "string",
           "Exposure": "public"
         },
         {
           "Name": "listingEntryDelete",
-          "CallingType": "json",
+          "CallingType": "string",
           "Exposure": "public"
         }
       ]
@@ -78,17 +78,17 @@
         },
         {
           "Name": "offerEntryRead",
-          "CallingType": "json",
+          "CallingType": "string",
           "Exposure": "public"
         },
         {
           "Name": "offerEntryUpdate",
-          "CallingType": "json",
+          "CallingType": "string",
           "Exposure": "public"
         },
         {
           "Name": "offerEntryDelete",
-          "CallingType": "json",
+          "CallingType": "string",
           "Exposure": "public"
         }
       ]
