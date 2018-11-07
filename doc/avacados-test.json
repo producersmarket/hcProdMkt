@@ -15,6 +15,10 @@
     "weight": "120kg"
 }
 
+curl -X POST "http://localhost:4141/fn/listingZome/listingEntryCreate" -H "accept: text/plain" -H "Content-Type: application/json" -d "{\"title\":\"Avacados (Test)\",\"description\":\"Awesome Avacados (from Mexico) Grown by Me (Test)\",\"category\":\"Avacados\",\"price_cents\":12345,\"currency\":\"USD\",\"valid_until\":1531614489,\"created_at\":1531614489,\"crop\":\"123\",\"moisture\":95,\"delivery\":\"truck\",\"storage\":\"container\",\"term_of_payment\":\"DOD\",\"image_data\":\"https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg\",\"weight\":\"120kg\"}"
+
+curl -X POST "http://localhost:4141/fn/readerWriter/holoTextWrite" -H "accept: text/plain" -H "Content-Type: application/json"
+
 QmdSWJ5dcfiXS1JsLVgTUS9BHxik1xe7MnhKSB9VfhgYQk
 QmdSWJ5dcfiXS1JsLVgTUS9BHxik1xe7MnhKSB9VfhgYQk
 

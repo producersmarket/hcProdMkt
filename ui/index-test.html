@@ -1,0 +1,76 @@
+<html>
+
+	<head>
+		<script type="text/javascript" src="/hc.js?7"></script>
+	</head>
+
+	<body>
+
+		<form>
+			<p>Enter the text of the entry</p>
+			<p>This will be stored in Holochain and the hash key for the new entry will be shown</p>
+			<p>in the Hash text box below.</p>
+			<label for="entry">Entry</label>
+
+			<!--input type="text" id="holoWorldEntry" size="50" value="This text will be saved in Holochain" /-->
+			<textarea id="holoWorldEntry" cols="100" rows="20">{
+    "title": "Avacados (Test)",
+    "description": "Awesome Avacados (from Mexico) Grown by Me (Test)",
+    "category": "Avacados",
+    "price_cents": 12345,
+    "currency": "USD",
+    "valid_until": 1531614489,
+    "created_at": 1531614489,
+    "crop": "123",
+    "moisture": 95,
+    "delivery": "truck",
+    "storage": "container",
+    "term_of_payment": "DOD",
+    "image_data": "https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg",
+    "weight": "120kg"
+}</textarea>
+
+			<button type="submit" id="submitEntry">Submit</button>
+		</form>
+
+		<form>
+			<p>Press the Read button and the hash key will be used to retrieve the entry</p>
+			<label for="hash">Hash</label>
+			<input type="text" id="hash" size="50"/>
+			<!--input type="text" id="entryContent" /-->
+			<button type="submit" id="readEntry">Read</button>
+			<br/>
+			<textarea id="entryContent" cols="100" rows="20"></textarea>
+		</form>
+
+		<script type="text/javascript">
+			document.getElementById("submitEntry").addEventListener(
+				"click"
+				, function(event) {
+					event.preventDefault()
+					holoTextWrite(
+						document.getElementById('holoWorldEntry').value
+						, function(hash) {
+							console.log("hash = "+hash);
+							document.getElementById('hash').value = hash
+						}
+					)
+				}
+			);
+
+			document.getElementById("readEntry").addEventListener(
+				"click"
+				, function(event) {
+					event.preventDefault()
+					holoTextRead(
+						document.getElementById('hash').value
+						, function(task) {
+							console.log("task = "+task);
+							document.getElementById('entryContent').value = JSON.stringify(task);
+						}
+					)
+				}
+			);
+		</script>
+	</body>
+</html>
