@@ -1,19 +1,16 @@
 <html>
 
 	<head>
-		<script type="text/javascript" src="/hc.js?7"></script>
+		<script type="text/javascript" src="/hc.js?12"></script>
 	</head>
 
 	<body>
 
 		<form>
-			<p>Enter the text of the entry</p>
-			<p>This will be stored in Holochain and the hash key for the new entry will be shown</p>
-			<p>in the Hash text box below.</p>
-			<label for="entry">Entry</label>
+			<p>Enter the JSON text of the entry</p>
+			<p>This will be stored in Holochain and the hash key for the new entry will be shownin the Hash text box below.</p>
 
-			<!--input type="text" id="holoWorldEntry" size="50" value="This text will be saved in Holochain" /-->
-			<textarea id="holoWorldEntry" cols="100" rows="20">{
+			<textarea id="holoWorldEntry" cols="100" rows="16">{
     "title": "Avacados (Test)",
     "description": "Awesome Avacados (from Mexico) Grown by Me (Test)",
     "category": "Avacados",
@@ -29,19 +26,30 @@
     "image_data": "https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg",
     "weight": "120kg"
 }</textarea>
-
+			<br/>
 			<button type="submit" id="submitEntry">Submit</button>
 		</form>
 
 		<form>
-			<p>Press the Read button and the hash key will be used to retrieve the entry</p>
-			<label for="hash">Hash</label>
+			<p>Click the Read button and the hash key will be used to retrieve the entry</p>
 			<input type="text" id="hash" size="50"/>
-			<!--input type="text" id="entryContent" /-->
+			<br/>
 			<button type="submit" id="readEntry">Read</button>
 			<br/>
 			<textarea id="entryContent" cols="100" rows="20"></textarea>
+			<br/>
+			<button type="submit" id="updateEntry">Update</button>
+			<!--
+			<br/>
+			<textarea id="updateContent" cols="100" rows="20"></textarea>
+		-->
+			<br/>
+			<input type="text" id="updated-hash" size="50"/>			
+			<br/>
+			<button type="submit" id="deleteEntry">Delete</button>
+			<button type="submit" id="readEntry2">Read</button>
 		</form>
+
 
 		<script type="text/javascript">
 			document.getElementById("submitEntry").addEventListener(
@@ -71,6 +79,51 @@
 					)
 				}
 			);
+
+			document.getElementById("updateEntry").addEventListener(
+				"click"
+				, function(event) {
+					event.preventDefault()
+					holoTextUpdate(
+						  document.getElementById('hash').value
+						, document.getElementById('entryContent').value
+						, function(hash) {
+							console.log("hash = "+hash);
+							document.getElementById('updated-hash').value = hash
+						}
+					)
+				}
+			);
+
+			document.getElementById("deleteEntry").addEventListener(
+				"click"
+				, function(event) {
+					event.preventDefault()
+					holoTextDelete(
+						  //document.getElementById('hash').value
+							document.getElementById('updated-hash').value
+						, function(hash) {
+							console.log("hash = "+hash);
+							document.getElementById('updated-hash').value = hash
+						}
+					)
+				}
+			);
+
+			document.getElementById("readEntry2").addEventListener(
+				"click"
+				, function(event) {
+					event.preventDefault()
+					holoTextRead(
+						document.getElementById('updated-hash').value
+						, function(task) {
+							console.log("task = "+task);
+							document.getElementById('entryContent').value = JSON.stringify(task);
+						}
+					)
+				}
+			);
+
 		</script>
 	</body>
 </html>

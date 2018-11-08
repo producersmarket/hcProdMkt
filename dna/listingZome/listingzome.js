@@ -34,21 +34,31 @@ function listingEntryRead (listingEntryHash) {
 
   debugObject(listingEntry);
 
-  return listingEntry;
+  console.log("typeof listingEntry = "+typeof listingEntry);
+
+  //return listingEntry;
+  return JSON.stringify(listingEntry);
 }
 
 function listingEntryUpdate (listingEntryHash) {
   console.log(className+".listingEntryUpdate("+listingEntryHash+")");
+//function listingEntryUpdate (listingEntryHash, listingEntry) {
+//  console.log(className+".listingEntryUpdate("+listingEntryHash+", "+listingEntry+")");
 
-  var sampleValue={"title":"Colin's Awesome Avacados","description":"Awesome Avacados (from Mexico) Grown by Collin","category":"Avacados","price_cents":12345,"currency":"USD","valid_until":1531614489,"created_at":1531614489,"crop":"123","moisture":95,"delivery":"truck","storage":"container","term_of_payment":"DOD","image_data":"https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg","weight":"120kg","extraField":true};
-  var listingEntryOutHash = update("listingEntry", sampleValue, listingEntryHash);
-  return listingEntryOutHash;
+  var listingEntry = {"title":"Colin's Awesome Avacados","description":"Awesome Avacados (from Mexico) Grown by Collin","category":"Avacados","price_cents":12345,"currency":"USD","valid_until":1531614489,"created_at":1531614489,"crop":"123","moisture":95,"delivery":"truck","storage":"container","term_of_payment":"DOD","image_data":"https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg","weight":"120kg","extraField":true};
+
+  var listingEntryUpdatedHash = update("listingEntry", listingEntry, listingEntryHash);
+
+  console.log("listingEntryUpdatedHash = "+listingEntryUpdatedHash);
+
+  return listingEntryUpdatedHash;
 }
 
 function listingEntryDelete (listingEntryHash) {
   console.log(className+".listingEntryDelete("+listingEntryHash+")");
 
   var result = remove(listingEntryHash, "");
+
   return result;
 }
 
@@ -247,9 +257,11 @@ function debugLink(link) {
 }
 
 function debugObject(object) {
-  for(var property in object) {
+  if(object) {
+    for(var property in object) {
       if(object.hasOwnProperty(property)) {
         console.log("    "+property+' = '+object[property]);
       }
     }
+  }
 }
