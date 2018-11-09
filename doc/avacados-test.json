@@ -45,3 +45,7 @@ QmdSWJ5dcfiXS1JsLVgTUS9BHxik1xe7MnhKSB9VfhgYQk
         "image_data": "https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg",
         "weight": "120kg"
     }
+
+{"category":"Avacados","created_at":1531614489,"crop":"123","currency":"USD","delivery":"truck","description":"Awesome Avacados (from Mexico) Grown by Me (Test)","image_data":"https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg","moisture":95,"price_cents":12345,"storage":"container","term_of_payment":"DOD","title":"Avacados (Test)","valid_until":1531614489,"weight":"120kg"}
+
+{category:"Avacados",created_at:1531614489,crop:"123",currency:"USD",delivery:"truck",description:"Awesome Avacados (from Mexico) Grown by Me (Test)",image_data:"https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg",moisture:95,price_cents:12345,storage:"container",term_of_payment:"DOD",title:"Avacados (Test)",valid_until:1531614489,weight:"120kg"}    

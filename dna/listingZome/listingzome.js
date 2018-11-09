@@ -40,18 +40,33 @@ function listingEntryRead (listingEntryHash) {
   return JSON.stringify(listingEntry);
 }
 
-function listingEntryUpdate (listingEntryHash) {
-  console.log(className+".listingEntryUpdate("+listingEntryHash+")");
-//function listingEntryUpdate (listingEntryHash, listingEntry) {
-//  console.log(className+".listingEntryUpdate("+listingEntryHash+", "+listingEntry+")");
+//var listingEntry = {"title":"Colin's Awesome Avacados","description":"Awesome Avacados (from Mexico) Grown by Collin","category":"Avacados","price_cents":12345,"currency":"USD","valid_until":1531614489,"created_at":1531614489,"crop":"123","moisture":95,"delivery":"truck","storage":"container","term_of_payment":"DOD","image_data":"https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg","weight":"120kg","extraField":true};
+function listingEntryUpdate (listingEntryJson) {
+  console.log(className+".listingEntryUpdate("+listingEntryJson+")");
 
-  var listingEntry = {"title":"Colin's Awesome Avacados","description":"Awesome Avacados (from Mexico) Grown by Collin","category":"Avacados","price_cents":12345,"currency":"USD","valid_until":1531614489,"created_at":1531614489,"crop":"123","moisture":95,"delivery":"truck","storage":"container","term_of_payment":"DOD","image_data":"https://afm-6b83.kxcdn.com/wp-content/uploads/2016/11/avocado-hub.jpg","weight":"120kg","extraField":true};
+  var listingEntryJsonArray = JSON.parse(listingEntryJson);
 
-  var listingEntryUpdatedHash = update("listingEntry", listingEntry, listingEntryHash);
+  //var listingEntryHash = listingEntryJson["listingEntryHash"];
+  var listingEntryHash = listingEntryJsonArray[0];
+  console.log("listingEntryHash = "+listingEntryHash);
 
-  console.log("listingEntryUpdatedHash = "+listingEntryUpdatedHash);
+  //var listingEntry = listingEntryJson["listingEntry"];
+  var listingEntry = listingEntryJsonArray[1];
+  console.log("listingEntry = "+listingEntry);
+  console.log("typeof listingEntry = "+typeof listingEntry);
+  console.log("JSON.parse(listingEntry) = "+JSON.parse(listingEntry));
 
-  return listingEntryUpdatedHash;
+  //var listingEntryUpdatedHash = update("listingEntry", listingEntry, listingEntryHash);
+  //var listingEntryUpdatedHash = update("listingEntry", listingEntry, JSON.stringify(listingEntryHash));
+  //var listingEntryUpdatedHash = update("listingEntry", "test", listingEntryHash);
+  //var hash = update("listingEntry", {message: "this is a message"}, listingEntryHash)
+  //var hash = update("listingEntry", listingEntry, listingEntryHash)
+  var hash = update("listingEntry", JSON.parse(listingEntry), listingEntryHash)
+  console.log("hash = "+hash);
+  return hash
+
+  //console.log("listingEntryUpdatedHash = "+listingEntryUpdatedHash);
+  //return listingEntryUpdatedHash;
 }
 
 function listingEntryDelete (listingEntryHash) {
